@@ -5,6 +5,7 @@ const types = React.PropTypes;
 const {useStore} = require('p-flux');
 const {useRouter} = require('./use_router');
 const Router = require('./router');
+const {createClient} = require('../adapters/spotify_adapter');
 
 class Application extends React.Component {
   static propTypes = {
@@ -15,9 +16,10 @@ class Application extends React.Component {
 
   render() {
     const {config, store, router} = this.props;
+    const spotify = createClient();
     return (
       <div className="enqueue">
-        <Router {...{router, config, ...store}}/>
+        <Router {...{router, config, spotify, ...store}}/>
       </div>
     );
   }

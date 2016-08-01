@@ -1,5 +1,7 @@
 const Spotify = require('spotify-web-api-node');
-const {clientId, clientSecret} = require('./secrets');
+// const {clientId, clientSecret} = require('../../secrets');
+const clientId = '413e6d72a7c345938f57a5204d8c1e24';
+const clientSecret = '28e21c072b89481abd69817f0f94fd84';
 
 function getCredentials() {
   return {
@@ -15,7 +17,7 @@ function setAccessToken(client) {
 module.exports = {
   createClient() {
     const client = new Spotify(getCredentials());
-    setAccessToken(client);
+    // setAccessToken(client);
     return client;
   }
 };

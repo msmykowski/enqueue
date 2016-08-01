@@ -16,19 +16,6 @@ describe('PlaylistPage', () => {
     expect('.entry:eq(1)').toContainText('song2');
   });
 
-  describe('clicking the add song', () => {
-    let newSong;
-    beforeEach(() => {
-      newSong = 'song3';
-      $('.entry-input').val(newSong);
-      $('.add-entry').simulate('click');
-    });
-
-    it('dispatches a playlist update event', () => {
-      expect(Dispatcher.dispatch).toHaveBeenCalledWith({type: 'socketEmitPlaylistUpdate', data: {id: 1, entry: newSong}});
-    });
-  });
-
   describe('when the playlist does not exist', () => {
     beforeEach(() => {
       props = {...props, playlist: null};
